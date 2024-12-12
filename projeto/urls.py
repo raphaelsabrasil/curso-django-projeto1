@@ -21,11 +21,15 @@ from django.http import HttpResponse
 # HTTP REQUEST <- HTTP RESPONSE
 
 #HTTP REQUEST
+def my_first(request):
+    return HttpResponse('ESTA É MINHA PÁGINA PRINCIPAL!')
+
 def my_view(request):
     return HttpResponse('UMA LINDA STRING')
     # return HTTP Response
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', my_first),
     path('sobre/', my_view),
 ]
