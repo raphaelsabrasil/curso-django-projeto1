@@ -52,11 +52,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'projeto.urls'
 
+##  PARA CARREGAR TEMPLATES, ALÉM DO TEMPLATE DO PROJETO "recipes"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'base_templates',
+           # BASE_DIR / 'recipes' / 'templates_temp',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

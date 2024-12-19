@@ -128,3 +128,6 @@ gunicorn-error-log
 db.sqlite3
 db copy.sqlite3
 static/
+templates_temp
+
+https://github.com/luizomf/curso-django-projeto1/commit/6ba2867e7a51f33f6df4e381ffb71674c2991ae9#diff-c9925b89d41dbe1c3b70a647aeb6b6f886fb67a5daa2a6734316944717f771d1R7
