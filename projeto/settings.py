@@ -122,6 +122,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Para carregar CSS global, que não está vinculado a nenhum App
+STATICFILES_DIRS = [
+    BASE_DIR / 'base_static',
+]
+
+# Coleta todos os arquivos estáticos para uma pasta só na raiz do projeto, quando fizer Deploy
+STATIC_ROOT = BASE_DIR / 'static'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
