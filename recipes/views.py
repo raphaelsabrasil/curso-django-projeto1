@@ -1,15 +1,16 @@
 from django.shortcuts import render     # tem a função de ler e renderizar arquivo (ex.: template)
+from utils.recipes.factory import make_recipe
 # from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
     return render(request, 'recipes/pages/home.html', status=201, context={
-        'name': 'Raphael Sá Brasil',
+        'recipes': [make_recipe() for _ in range(10)],
     })
 
 def recipe(request, id):
     return render(request, 'recipes/pages/recipe-view.html', context={
-        'name': 'Raphael Sá Brasil',
+        'recipe': make_recipe(),
     })
 # def home(request):
 #     return HttpResponse('HOME')
