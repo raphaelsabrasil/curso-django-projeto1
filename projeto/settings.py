@@ -130,6 +130,10 @@ STATICFILES_DIRS = [
 # Coleta todos os arquivos estáticos para uma pasta só na raiz do projeto, quando fizer Deploy
 STATIC_ROOT = BASE_DIR / 'static'
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
