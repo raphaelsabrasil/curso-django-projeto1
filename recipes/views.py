@@ -37,8 +37,14 @@ def category(request, category_id):
     # first() << quando usa queryset // [0] << quando usar uma list
 
 def recipe(request, id):
+    recipe = Recipe.objects.filter(
+        pk=id,
+        is_published=True,
+    ).order_by('-id').first()
+
     return render(request, 'recipes/pages/recipe-view.html', context={
-        'recipe': make_recipe(),
+        # 'recipe': make_recipe(),
+        'recipe': recipe,
         'is_detail_page': True,
     })
 # def home(request):
