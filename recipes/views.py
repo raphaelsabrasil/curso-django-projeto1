@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404     # tem a função de ler e renderizar arquivo (ex.: template)
+from django.shortcuts import render, get_list_or_404, get_object_or_404     # tem a função de ler e renderizar arquivo (ex.: template)
 from utils.recipes.factory import make_recipe
 from recipes.models import Recipe
 # from django.http import Http404
@@ -37,11 +37,12 @@ def category(request, category_id):
     # first() << quando usa queryset // [0] << quando usar uma list
 
 def recipe(request, id):
-    recipe = Recipe.objects.filter(
-        pk=id,
-        is_published=True,
-    ).order_by('-id').first()
-
+    # recipe = Recipe.objects.filter(
+    #     pk=id,
+    #     is_published=True,
+    # ).order_by('-id').first()
+    recipe = get_object_or_404(Recipe, pk=id, is_published=True,)
+    
     return render(request, 'recipes/pages/recipe-view.html', context={
         # 'recipe': make_recipe(),
         'recipe': recipe,
