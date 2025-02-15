@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404     # tem a função de ler e renderizar arquivo (ex.: template)
-from utils.recipes.factory import make_recipe
 from recipes.models import Recipe
+# from utils.recipes.factory import make_recipe
 # from django.http import Http404
 # from django.http import HttpResponse
 # Create your views here.
@@ -8,7 +8,7 @@ from recipes.models import Recipe
 def home(request):
     #recipes = Recipe.objects.all().order_by('-id')      # usando manage objects
     recipes = Recipe.objects.filter(
-        is_published=True
+        is_published=True,
     ).order_by('-id')
     return render(request, 'recipes/pages/home.html', context={
         'recipes': recipes,                
