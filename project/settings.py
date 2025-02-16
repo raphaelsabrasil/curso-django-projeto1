@@ -13,19 +13,19 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent   #resolve pegar caminho da pasta 'recipes' e da pasta raiz 'curso-django-project1'
+BASE_DIR = Path(__file__).resolve().parent.parent   #resolve pegar caminho da pasta 'recipes' e da pasta raiz 'curso-django-project1' # noqa
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*_fy_*n4n(%hs#7&z%4o7v6h-50w@i6fcj2+$=9-au%$gacxxk'
+SECRET_KEY = 'django-insecure-*_fy_*n4n(%hs#7&z%4o7v6h-50w@i6fcj2+$=9-au%$gacxxk' # noqa: E261, E501
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: list[str] = []
 
 
 # Application definition
@@ -52,13 +52,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project.urls'
 
-##  PARA CARREGAR TEMPLATES, ALÉM DO TEMPLATE DO project "recipes"
+##  PARA CARREGAR TEMPLATES, ALÉM DO TEMPLATE DO project "recipes" # noqa: E266
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'base_templates',
-           # BASE_DIR / 'recipes' / 'templates_temp',
+           # BASE_DIR / 'recipes' / 'templates_temp', # noqa: E131
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -91,16 +91,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', # noqa: E501, E261
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', # noqa: E501, E261
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', # noqa: E501, E261
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', # noqa: E501, E261
     },
 ]
 
@@ -127,7 +127,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'base_static',
 ]
 
-# Coleta todos os arquivos estáticos para uma pasta só na raiz do project, quando fizer Deploy
+# Coleta todos os arquivos estáticos para uma pasta só na raiz do project, quando fizer Deploy # noqa: E501
 STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
