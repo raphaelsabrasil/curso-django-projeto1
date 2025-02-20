@@ -11,5 +11,5 @@ urlpatterns = [
     path('', views.home, name="home"),      # name="recipes-home"   usando app_name para encurtar name
     path('recipes/category/<int:category_id>/',
          views.category, name="category"),
-    path('recipes/<int:id>', views.recipe, name="recipe"),      # name="recipes-recipe"
+    path('recipes/<int:id>/', views.recipe, name="recipe"),      # name="recipes-recipe"
 ]
