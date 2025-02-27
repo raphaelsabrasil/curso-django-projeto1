@@ -34,7 +34,7 @@ class RecipeViewsTest(TestCase):
             password='123456',
             email='username@email.com',
         )
-        recipe = Recipe.objects.create(     # noqa
+        recipe = Recipe.objects.create(     
             category=category,
             author=author,
             title='Recipe Title',
@@ -51,9 +51,9 @@ class RecipeViewsTest(TestCase):
         # assert 1 == 1
         response = self.client.get(reverse('recipes:home'))
         content = response.content.decode('utf-8')
-        response_context_recipes = response.context['recipes']
+        response_context_recipes = response.context['recipes']  # context > que consta na view
 
-        self.assertIn('Recipe Title', content)
+        self.assertIn('Recipe Title', content)      # content > se consta o que está acima
         self.assertIn('10 Minutos', content)
         self.assertIn('5 Porções', content)
         self.assertEqual(len(response_context_recipes), 1)
